@@ -1,6 +1,25 @@
 .main-footer {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   padding-bottom: 20px;
+  justify-content: space-between;
+  font-size: 15px;
+  .info {
+    line-height: 1.4;
+  }
+
+  .info a {
+    font-weight: 700;
+  }
+}
+@media (max-width: 767px) {
+  .main-footer {
+    .footer-logo {
+      width: 100%;
+    }
+    .info {
+      text-align: left;
+      padding: 0 10px;
+    }
+  }
 }

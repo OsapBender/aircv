@@ -3,6 +3,13 @@
   margin-top: 200px;
 }
 
+.heading__wrapper-title {
+  display: block;
+  max-width: 585px;
+  border-bottom: 0.5px solid rgba(255, 255, 255, .7);
+  padding-bottom: 20px;
+}
+
 .heading__page-title {
   font-size: 70px;
   color: #fff;
@@ -11,18 +18,9 @@
 }
 
 .heading__page-subtitle {
-  display: block;
   font-size: 25px;
   color: #fff;
   margin-bottom: 40px;
-}
-
-.heading__hr {
-  display: block;
-  margin-left: 0;
-  margin-bottom: 35px;
-  width: 500px;
-  border: 0.5px solid rgba(255, 255, 255,.2);
 }
 
 .heading__social-networks {
@@ -87,4 +85,10 @@
 }
 .icon-social-linkedin:before {
   content: "\e60a";
+}
+
+@media (max-width: 767px) {
+  .heading__page-title {
+    font-size: 50px;
+  }
 }

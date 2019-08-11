@@ -46,6 +46,8 @@
   a {
     font-size: 14px;
     color: #81848f;
+    font-weight: 400;
+    line-height: 1.4;
   }
 }
 @media (max-width: 1199px) {
@@ -99,5 +101,10 @@
   .contact__phone,
   .contact__web {
     padding: 0;
+    width: 50% !important;
+
+    a {
+      // word-wrap: break-word;
+    }
   }
 }
