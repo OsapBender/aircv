@@ -1274,6 +1274,12 @@ h6 {
   margin-bottom: 190px;
   margin-top: 200px; }
 
+.heading__wrapper-title {
+  display: block;
+  max-width: 585px;
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.7);
+  padding-bottom: 20px; }
+
 .heading__page-title {
   font-size: 70px;
   color: #fff;
@@ -1281,17 +1287,9 @@ h6 {
   margin-bottom: 20px; }
 
 .heading__page-subtitle {
-  display: block;
   font-size: 25px;
   color: #fff;
   margin-bottom: 40px; }
-
-.heading__hr {
-  display: block;
-  margin-left: 0;
-  margin-bottom: 35px;
-  width: 500px;
-  border: 0.5px solid rgba(255, 255, 255, 0.2); }
 
 .heading__social-networks {
   display: -ms-flexbox;
@@ -1354,6 +1352,10 @@ icon-social-twitter {
 
 .icon-social-linkedin:before {
   content: "\e60a"; }
+
+@media (max-width: 767px) {
+  .heading__page-title {
+    font-size: 50px; } }
 
 .about {
   margin-top: 250px; }
@@ -1426,7 +1428,12 @@ icon-social-twitter {
 @media (max-width: 767px) {
   .about__wrapper-tittle {
     -ms-flex-wrap: wrap;
-        flex-wrap: wrap; } }
+        flex-wrap: wrap; }
+  .about__title {
+    padding: 0;
+    margin: 0; }
+  .about__subtitle {
+    padding: 0; } }
 
 .experience {
   display: -ms-flexbox;
@@ -1627,7 +1634,8 @@ icon-social-twitter {
 @media (max-width: 767px) {
   .works {
     -ms-flex-wrap: wrap;
-        flex-wrap: wrap; }
+        flex-wrap: wrap;
+    padding-bottom: 0; }
   .works__examples {
     padding: 0;
     padding-top: 15px; }
@@ -1636,7 +1644,10 @@ icon-social-twitter {
   .works__img {
     margin-top: 5px; }
   .works__grid a:nth-child(4) {
-    margin-top: 0; } }
+    margin-top: 0; }
+  .works__title {
+    padding: 0;
+    margin: 0; } }
 
 .contact {
   display: -ms-flexbox;
@@ -1690,7 +1701,9 @@ icon-social-twitter {
   .contact__phone a,
   .contact__web a {
     font-size: 14px;
-    color: #81848f; }
+    color: #81848f;
+    font-weight: 400;
+    line-height: 1.4; }
 
 @media (max-width: 1199px) {
   .contact__adress {
@@ -1732,16 +1745,29 @@ icon-social-twitter {
   .contact__location,
   .contact__phone,
   .contact__web {
-    padding: 0; } }
+    padding: 0;
+    width: 50% !important; } }
 
 .main-footer {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-align: center;
       align-items: center;
+  padding-bottom: 20px;
   -ms-flex-pack: justify;
       justify-content: space-between;
-  padding-bottom: 20px; }
+  font-size: 15px; }
+  .main-footer .info {
+    line-height: 1.4; }
+  .main-footer .info a {
+    font-weight: 700; }
+
+@media (max-width: 767px) {
+  .main-footer .footer-logo {
+    width: 100%; }
+  .main-footer .info {
+    text-align: left;
+    padding: 0 10px; } }
 
 .modal,
 .modal_active {
