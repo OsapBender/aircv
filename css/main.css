@@ -1777,6 +1777,8 @@ icon-social-twitter {
   z-index: 1000;
   /* Sit on top */
   padding-top: 10%;
+  padding-left: 10px;
+  padding-right: 10px;
   /* Location of the box */
   left: 0;
   top: 0;
@@ -1801,7 +1803,6 @@ icon-social-twitter {
 .modal__content {
   position: relative;
   background-color: #fff;
-  border-radius: 5px;
   margin: 85px auto;
   padding: 0;
   max-width: 670px;
@@ -1854,6 +1855,7 @@ icon-social-twitter {
     -ms-flex-flow: column-reverse;
         flex-flow: column-reverse; }
   .modal__info {
+    width: 100%;
     border-right: 0; }
   .modal__teams {
     margin-top: 5px;
