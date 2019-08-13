@@ -316,6 +316,7 @@ template {
 
 body {
   font-family: 'Hind',sans-serif;
+  background-color: #fff;
   color: #a6a7aa;
   font-size: 14px; }
 
@@ -336,13 +337,27 @@ body {
   .container {
     width: 1170px; } }
 
-.promo-bg {
+.parallax-mirror {
+  visibility: visible;
+  z-index: -100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  -webkit-transform: translate3d(0px, 0px, 0px);
+          transform: translate3d(0px, 0px, 0px);
+  height: 661px;
+  width: 100%; }
+
+.parallax-mirror img {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: -1000;
+  right: 0;
+  visibility: visible;
+  overflow: hidden;
   width: 100%;
-  height: 661px;
+  height: 100%;
   object-fit: cover; }
 
 a {
@@ -359,6 +374,23 @@ h5,
 h6 {
   font-family: 'Hind';
   color: #515769; }
+
+.js-back-to-top {
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  display: inline-block;
+  z-index: 9;
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  font-size: 11px;
+  text-align: center;
+  line-height: 3;
+  letter-spacing: 1px;
+  background: #515769;
+  border-radius: 3px;
+  padding: 5px; }
 
 /*
  Use the following CSS code if you want to have a class per icon.
@@ -1271,25 +1303,26 @@ h6 {
       background-color: #515769; } }
 
 .heading {
-  margin-bottom: 190px;
-  margin-top: 200px; }
+  padding-top: 200px;
+  padding-bottom: 200px;
+  height: 661px; }
 
 .heading__wrapper-title {
   display: block;
   max-width: 585px;
   border-bottom: 0.5px solid rgba(255, 255, 255, 0.7);
-  padding-bottom: 20px; }
+  padding-bottom: 50px; }
 
 .heading__page-title {
   font-size: 70px;
   color: #fff;
   line-height: 1;
-  margin-bottom: 20px; }
+  margin-bottom: 20px;
+  margin-top: 0; }
 
 .heading__page-subtitle {
   font-size: 25px;
-  color: #fff;
-  margin-bottom: 40px; }
+  color: #fff; }
 
 .heading__social-networks {
   display: -ms-flexbox;
@@ -1299,6 +1332,7 @@ h6 {
   -ms-flex-align: center;
       align-items: center;
   list-style: none;
+  margin-top: 40px;
   padding: 0; }
   .heading__social-networks li {
     display: -ms-flexbox;
@@ -1358,7 +1392,7 @@ icon-social-twitter {
     font-size: 50px; } }
 
 .about {
-  margin-top: 250px; }
+  margin-top: 100px; }
 
 .about__wrapper-tittle {
   display: -ms-flexbox;

@@ -2439,7 +2439,7 @@ module.exports = {
 });
 
 // MY PROGRESS BAR
-window.onload = function onLoad() {
+function progressBar() {
   const data = {
     css: 81,
     html5: 94,
@@ -2447,47 +2447,55 @@ window.onload = function onLoad() {
     photoshop: 29,
   };
   const progressList = document.querySelector('.about__progress-list');
-    for (const [key, val] of Object.entries(data)) {
-      const el = document.createElement('div');
-      el.classList.add('about__progress-list-item');
-      el.innerHTML = `<h5>${key}</h5>`;
-      progressList.appendChild(el);
+  for (const [key, val] of Object.entries(data)) {
+    const el = document.createElement('div');
+    el.classList.add('about__progress-list-item');
+    el.innerHTML = `<h5>${key}</h5>`;
+    progressList.appendChild(el);
 
-      const lineBar = new ProgressBar.Line(el, {
-        strokeWidth: 0.5,
-        trailWidth: 0.5,
-        from: {
-          color: "#17bed2"
-        },
-        to: {
-          color: "#17bed2"
-        },
-        text: {
-          value: '0',
-          className: 'progress-text',
-          style: {
-            position: 'absolute',
-            top: '-30px',
-            right: 0,
-            padding: 0,
-            margin: 0,
-            transform: null
-          }
-        },
-        step: (state, shape) => {
-          shape.path.setAttribute("stroke", state.color);
-          shape.setText(Math.round(shape.value() * 100) + ' %');
+    const lineBar = new ProgressBar.Line(el, {
+      strokeWidth: 0.5,
+      trailWidth: 0.5,
+      from: {
+        color: "#17bed2"
+      },
+      to: {
+        color: "#17bed2"
+      },
+      text: {
+        value: '0',
+        className: 'progress-text',
+        style: {
+          position: 'absolute',
+          top: '-30px',
+          right: 0,
+          padding: 0,
+          margin: 0,
+          transform: null
         }
-      });
+      },
+      step: (state, shape) => {
+        shape.path.setAttribute("stroke", state.color);
+        shape.setText(Math.round(shape.value() * 100) + ' %');
+      }
+    });
 
-      lineBar.animate(val / 100, {
-        duration: 1500
-      });
-    }
+    lineBar.animate(val / 100, {
+      duration: 1500
+    });
   }
+}
+let offset = 600;
+$(window).on('scroll', function() {
+  let scrolltop = $(this).scrollTop();
+  $('.about').each(function() {
+    if (scrolltop >= $(this).offset().top - offset) {
+      $(window).off(progressBar());
+    }
+  });
+});
 
 // NAV-BAR ON SCROLL
-  document.addEventListener("DOMContentLoaded", function() {
     $('nav a').on('click', function() {
       var scrollAnchor = $(this).attr('data-scroll'),
         scrollPoint = $('section[data-anchor="' + scrollAnchor + '"]').offset().top - 120;
@@ -2503,7 +2511,8 @@ window.onload = function onLoad() {
 
     window.addEventListener('scroll', function(e) {
       const y = window.pageYOffset;
-      if (y >= 50 && $(window).width() >= 991) {
+      const scrollTop = $(this).scrollTop();
+      if (y >= 50) {
         header.classList.add('fixed-on-scroll');
         header.classList.remove('header');
         logo.src = 'img/logo-dark.png';
@@ -2521,7 +2530,15 @@ window.onload = function onLoad() {
           logo.src = 'img/logo.png';
         }
       }
+      // паралакс
+      $('.parallax-mirror').css({
+        "top": -scrollTop
+      });
+      $('.parallax-mirror img').css({
+        "top": scrollTop
+      });
     });
+    // адаптивное меню
     $('.btn--active').on('click', function(e) {
       $('.header__menu-list').toggleClass('active');
     });
@@ -2530,7 +2547,6 @@ window.onload = function onLoad() {
     } else {
       $('.header__logo').attr('src', 'img/logo.png');
     }
-  });
 
 // MODULE WORKS
 $(function() {
@@ -2547,3 +2563,23 @@ $(function() {
     }
   });
 });
+
+// BACK TO TOP
+// if ($('.js-back-to-top')) {
+//   let scrollTrigger = 100, // px
+//     backToTop = function() {
+//       let scrollTop = $(window).scrollTop();
+//       if (scrollTop > scrollTrigger) {
+//         $('.js-back-to-top').addClass('show');
+//       } else {
+//         $('.js-back-to-top').removeClass('show');
+//       }
+//     };
+  // backToTop();
+  $('.js-back-to-top').on('click', (e) => {
+    e.preventDefault();
+    $('html,body').animate({
+      scrollTop: 0
+    }, 700);
+  });
+// }
